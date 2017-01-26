@@ -32,3 +32,22 @@ SELECT posts.title, posts.content, users.username
   INNER JOIN posts
   ON posts.users_id = users.id
   WHERE users.created_at < TIMESTAMP WITH TIME ZONE '2015-01-01';
+
+-- 7. Create a query to get the all rows in the comments table, showing post title (aliased as 'Post Title'), and the all the comment's fields
+SELECT posts.title AS "Post Title", comments.*
+  FROM users
+  INNER JOIN posts
+  ON posts.users_id = users.id
+  INNER JOIN comments
+  ON comments.posts_id = posts.id;
+
+-- 8. Create a query to get the all rows in the comments table, showing post title (aliased as post_title), post url (ailased as post_url), and the comment body (aliased as comment_body) where the post was created before January 1, 2015
+SELECT posts.title AS post_title, posts.url AS post_url, comments.body as comment_body
+  FROM users
+  INNER JOIN posts
+  ON posts.users_id = users.id
+  INNER JOIN comments
+  ON comments.posts_id = posts.id
+  WHERE posts.created_at < TIMESTAMP WITH TIME ZONE '2015-01-01';
+
+-- 9. Create a query to get the all rows in the comments table, showing post title (aliased as post_title), post url (ailased as post_url), and the comment body (aliased as comment_body) where the post was created after January 1, 2015
