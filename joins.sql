@@ -43,6 +43,7 @@ SELECT posts.title AS "Post Title", comments.*
 
 -- 8. Create a query to get the all rows in the comments table, showing post title (aliased as post_title), post url (ailased as post_url), and the comment body (aliased as comment_body) where the post was created before January 1, 2015
 SELECT posts.title AS post_title, posts.url AS post_url, comments.body as comment_body, comments.*
+-- SELECT count(comments.id)
   FROM users
   INNER JOIN posts
   ON posts.users_id = users.id
